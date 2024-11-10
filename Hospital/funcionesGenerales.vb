@@ -1,0 +1,3 @@
+﻿Module funcionesGenerales
+
+End Module
