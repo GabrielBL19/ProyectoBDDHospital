@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\source\\repos\\Hospital\\Hospital\\Hospital.vbproj": {}
+    "C:\\Users\\donal\\Desktop\\Practicas JS\\ProyectoBDDHospital\\Hospital\\Hospital.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\source\\repos\\Hospital\\Hospital\\Hospital.vbproj": {
+    "C:\\Users\\donal\\Desktop\\Practicas JS\\ProyectoBDDHospital\\Hospital\\Hospital.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\source\\repos\\Hospital\\Hospital\\Hospital.vbproj",
+        "projectUniqueName": "C:\\Users\\donal\\Desktop\\Practicas JS\\ProyectoBDDHospital\\Hospital\\Hospital.vbproj",
         "projectName": "Hospital",
-        "projectPath": "C:\\Users\\gabri\\source\\repos\\Hospital\\Hospital\\Hospital.vbproj",
-        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\source\\repos\\Hospital\\Hospital\\obj\\",
+        "projectPath": "C:\\Users\\donal\\Desktop\\Practicas JS\\ProyectoBDDHospital\\Hospital\\Hospital.vbproj",
+        "packagesPath": "C:\\Users\\donal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\donal\\Desktop\\Practicas JS\\ProyectoBDDHospital\\Hospital\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\donal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
