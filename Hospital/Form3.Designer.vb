@@ -29,10 +29,10 @@ Partial Class FormularioPacientes
         txtNombRespPac = New TextBox()
         lblNombRespPac = New Label()
         grpDatosPac = New GroupBox()
-        btnBuscarPac = New Button()
-        mskNumSegPac = New MaskedTextBox()
+        txtNumSeguroPac = New TextBox()
+        txtTelefonoPaciente = New TextBox()
+        txtIdentidadPaciente = New TextBox()
         lblNumSegPac = New Label()
-        mskTelPac = New MaskedTextBox()
         lblTelPac = New Label()
         txtCorreoPac = New TextBox()
         lblCorreoPac = New Label()
@@ -49,15 +49,21 @@ Partial Class FormularioPacientes
         lblApePac = New Label()
         txtNombPac = New TextBox()
         lblNombPac = New Label()
-        mskIdPac = New MaskedTextBox()
         lblIdPac = New Label()
+        btnBuscarPaciente = New Button()
         lblFormPac = New Label()
         btnAgregarPac = New Button()
         btnModificarPac = New Button()
         btnEliminarPac = New Button()
+        dtgPacientes = New DataGridView()
+        grpBuscarPaciente = New GroupBox()
+        txtBuscarPaciente = New TextBox()
+        lblInstruccionesFormularioP = New Label()
         grpDatosRespPac.SuspendLayout()
         grpDatosPac.SuspendLayout()
         grpGeneroPac.SuspendLayout()
+        CType(dtgPacientes, ComponentModel.ISupportInitialize).BeginInit()
+        grpBuscarPaciente.SuspendLayout()
         SuspendLayout()
         ' 
         ' grpDatosRespPac
@@ -66,9 +72,9 @@ Partial Class FormularioPacientes
         grpDatosRespPac.Controls.Add(lblTelRespPac)
         grpDatosRespPac.Controls.Add(txtNombRespPac)
         grpDatosRespPac.Controls.Add(lblNombRespPac)
-        grpDatosRespPac.Location = New Point(579, 100)
+        grpDatosRespPac.Location = New Point(68, 532)
         grpDatosRespPac.Name = "grpDatosRespPac"
-        grpDatosRespPac.Size = New Size(402, 120)
+        grpDatosRespPac.Size = New Size(447, 120)
         grpDatosRespPac.TabIndex = 5
         grpDatosRespPac.TabStop = False
         grpDatosRespPac.Text = "Datos del Responsable"
@@ -76,8 +82,9 @@ Partial Class FormularioPacientes
         ' txtTelRespPac
         ' 
         txtTelRespPac.Location = New Point(192, 58)
+        txtTelRespPac.MaxLength = 8
         txtTelRespPac.Name = "txtTelRespPac"
-        txtTelRespPac.Size = New Size(191, 27)
+        txtTelRespPac.Size = New Size(219, 27)
         txtTelRespPac.TabIndex = 3
         ' 
         ' lblTelRespPac
@@ -92,8 +99,9 @@ Partial Class FormularioPacientes
         ' txtNombRespPac
         ' 
         txtNombRespPac.Location = New Point(192, 25)
+        txtNombRespPac.MaxLength = 30
         txtNombRespPac.Name = "txtNombRespPac"
-        txtNombRespPac.Size = New Size(191, 27)
+        txtNombRespPac.Size = New Size(219, 27)
         txtNombRespPac.TabIndex = 1
         ' 
         ' lblNombRespPac
@@ -107,10 +115,10 @@ Partial Class FormularioPacientes
         ' 
         ' grpDatosPac
         ' 
-        grpDatosPac.Controls.Add(btnBuscarPac)
-        grpDatosPac.Controls.Add(mskNumSegPac)
+        grpDatosPac.Controls.Add(txtNumSeguroPac)
+        grpDatosPac.Controls.Add(txtTelefonoPaciente)
+        grpDatosPac.Controls.Add(txtIdentidadPaciente)
         grpDatosPac.Controls.Add(lblNumSegPac)
-        grpDatosPac.Controls.Add(mskTelPac)
         grpDatosPac.Controls.Add(lblTelPac)
         grpDatosPac.Controls.Add(txtCorreoPac)
         grpDatosPac.Controls.Add(lblCorreoPac)
@@ -125,7 +133,6 @@ Partial Class FormularioPacientes
         grpDatosPac.Controls.Add(lblApePac)
         grpDatosPac.Controls.Add(txtNombPac)
         grpDatosPac.Controls.Add(lblNombPac)
-        grpDatosPac.Controls.Add(mskIdPac)
         grpDatosPac.Controls.Add(lblIdPac)
         grpDatosPac.Location = New Point(68, 100)
         grpDatosPac.Name = "grpDatosPac"
@@ -134,21 +141,29 @@ Partial Class FormularioPacientes
         grpDatosPac.TabStop = False
         grpDatosPac.Text = "Datos Personales"
         ' 
-        ' btnBuscarPac
+        ' txtNumSeguroPac
         ' 
-        btnBuscarPac.Location = New Point(366, 23)
-        btnBuscarPac.Name = "btnBuscarPac"
-        btnBuscarPac.Size = New Size(66, 29)
-        btnBuscarPac.TabIndex = 9
-        btnBuscarPac.Text = "Buscar"
-        btnBuscarPac.UseVisualStyleBackColor = True
+        txtNumSeguroPac.Location = New Point(150, 371)
+        txtNumSeguroPac.MaxLength = 40
+        txtNumSeguroPac.Name = "txtNumSeguroPac"
+        txtNumSeguroPac.Size = New Size(188, 27)
+        txtNumSeguroPac.TabIndex = 15
         ' 
-        ' mskNumSegPac
+        ' txtTelefonoPaciente
         ' 
-        mskNumSegPac.Location = New Point(150, 371)
-        mskNumSegPac.Name = "mskNumSegPac"
-        mskNumSegPac.Size = New Size(200, 27)
-        mskNumSegPac.TabIndex = 12
+        txtTelefonoPaciente.Location = New Point(79, 338)
+        txtTelefonoPaciente.MaxLength = 75
+        txtTelefonoPaciente.Name = "txtTelefonoPaciente"
+        txtTelefonoPaciente.Size = New Size(159, 27)
+        txtTelefonoPaciente.TabIndex = 14
+        ' 
+        ' txtIdentidadPaciente
+        ' 
+        txtIdentidadPaciente.Location = New Point(161, 26)
+        txtIdentidadPaciente.MaxLength = 13
+        txtIdentidadPaciente.Name = "txtIdentidadPaciente"
+        txtIdentidadPaciente.Size = New Size(195, 27)
+        txtIdentidadPaciente.TabIndex = 13
         ' 
         ' lblNumSegPac
         ' 
@@ -158,13 +173,6 @@ Partial Class FormularioPacientes
         lblNumSegPac.Size = New Size(138, 20)
         lblNumSegPac.TabIndex = 6
         lblNumSegPac.Text = "Número de Seguro:"
-        ' 
-        ' mskTelPac
-        ' 
-        mskTelPac.Location = New Point(82, 338)
-        mskTelPac.Name = "mskTelPac"
-        mskTelPac.Size = New Size(176, 27)
-        mskTelPac.TabIndex = 11
         ' 
         ' lblTelPac
         ' 
@@ -178,6 +186,7 @@ Partial Class FormularioPacientes
         ' txtCorreoPac
         ' 
         txtCorreoPac.Location = New Point(69, 306)
+        txtCorreoPac.MaxLength = 75
         txtCorreoPac.Name = "txtCorreoPac"
         txtCorreoPac.Size = New Size(189, 27)
         txtCorreoPac.TabIndex = 10
@@ -194,6 +203,7 @@ Partial Class FormularioPacientes
         ' txtDirecPac
         ' 
         txtDirecPac.Location = New Point(86, 273)
+        txtDirecPac.MaxLength = 50
         txtDirecPac.Name = "txtDirecPac"
         txtDirecPac.Size = New Size(195, 27)
         txtDirecPac.TabIndex = 8
@@ -275,6 +285,7 @@ Partial Class FormularioPacientes
         ' txtApePac
         ' 
         txtApePac.Location = New Point(79, 93)
+        txtApePac.MaxLength = 30
         txtApePac.Name = "txtApePac"
         txtApePac.Size = New Size(202, 27)
         txtApePac.TabIndex = 2
@@ -291,6 +302,7 @@ Partial Class FormularioPacientes
         ' txtNombPac
         ' 
         txtNombPac.Location = New Point(79, 58)
+        txtNombPac.MaxLength = 30
         txtNombPac.Name = "txtNombPac"
         txtNombPac.Size = New Size(202, 27)
         txtNombPac.TabIndex = 2
@@ -304,13 +316,6 @@ Partial Class FormularioPacientes
         lblNombPac.TabIndex = 3
         lblNombPac.Text = "Nombre:"
         ' 
-        ' mskIdPac
-        ' 
-        mskIdPac.Location = New Point(167, 25)
-        mskIdPac.Name = "mskIdPac"
-        mskIdPac.Size = New Size(193, 27)
-        mskIdPac.TabIndex = 2
-        ' 
         ' lblIdPac
         ' 
         lblIdPac.AutoSize = True
@@ -320,11 +325,20 @@ Partial Class FormularioPacientes
         lblIdPac.TabIndex = 2
         lblIdPac.Text = "Número de Identidad:"
         ' 
+        ' btnBuscarPaciente
+        ' 
+        btnBuscarPaciente.Location = New Point(291, 36)
+        btnBuscarPaciente.Name = "btnBuscarPaciente"
+        btnBuscarPaciente.Size = New Size(66, 29)
+        btnBuscarPaciente.TabIndex = 9
+        btnBuscarPaciente.Text = "Buscar"
+        btnBuscarPaciente.UseVisualStyleBackColor = True
+        ' 
         ' lblFormPac
         ' 
         lblFormPac.AutoSize = True
         lblFormPac.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblFormPac.Location = New Point(375, 39)
+        lblFormPac.Location = New Point(688, 9)
         lblFormPac.Name = "lblFormPac"
         lblFormPac.Size = New Size(335, 41)
         lblFormPac.TabIndex = 3
@@ -334,7 +348,7 @@ Partial Class FormularioPacientes
         ' 
         btnAgregarPac.Image = CType(resources.GetObject("btnAgregarPac.Image"), Image)
         btnAgregarPac.ImageAlign = ContentAlignment.MiddleRight
-        btnAgregarPac.Location = New Point(550, 371)
+        btnAgregarPac.Location = New Point(83, 683)
         btnAgregarPac.Name = "btnAgregarPac"
         btnAgregarPac.Size = New Size(95, 34)
         btnAgregarPac.TabIndex = 6
@@ -346,7 +360,7 @@ Partial Class FormularioPacientes
         ' 
         btnModificarPac.Image = CType(resources.GetObject("btnModificarPac.Image"), Image)
         btnModificarPac.ImageAlign = ContentAlignment.MiddleRight
-        btnModificarPac.Location = New Point(671, 371)
+        btnModificarPac.Location = New Point(218, 683)
         btnModificarPac.Name = "btnModificarPac"
         btnModificarPac.Size = New Size(107, 34)
         btnModificarPac.TabIndex = 7
@@ -358,7 +372,7 @@ Partial Class FormularioPacientes
         ' 
         btnEliminarPac.Image = CType(resources.GetObject("btnEliminarPac.Image"), Image)
         btnEliminarPac.ImageAlign = ContentAlignment.MiddleRight
-        btnEliminarPac.Location = New Point(795, 373)
+        btnEliminarPac.Location = New Point(361, 683)
         btnEliminarPac.Name = "btnEliminarPac"
         btnEliminarPac.Size = New Size(95, 34)
         btnEliminarPac.TabIndex = 8
@@ -366,11 +380,51 @@ Partial Class FormularioPacientes
         btnEliminarPac.TextAlign = ContentAlignment.MiddleLeft
         btnEliminarPac.UseVisualStyleBackColor = True
         ' 
+        ' dtgPacientes
+        ' 
+        dtgPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dtgPacientes.Location = New Point(21, 71)
+        dtgPacientes.Name = "dtgPacientes"
+        dtgPacientes.RowHeadersWidth = 51
+        dtgPacientes.Size = New Size(971, 447)
+        dtgPacientes.TabIndex = 9
+        ' 
+        ' grpBuscarPaciente
+        ' 
+        grpBuscarPaciente.Controls.Add(btnBuscarPaciente)
+        grpBuscarPaciente.Controls.Add(txtBuscarPaciente)
+        grpBuscarPaciente.Controls.Add(dtgPacientes)
+        grpBuscarPaciente.Location = New Point(542, 100)
+        grpBuscarPaciente.Name = "grpBuscarPaciente"
+        grpBuscarPaciente.Size = New Size(1013, 539)
+        grpBuscarPaciente.TabIndex = 10
+        grpBuscarPaciente.TabStop = False
+        grpBuscarPaciente.Text = "Buscar Paciente"
+        ' 
+        ' txtBuscarPaciente
+        ' 
+        txtBuscarPaciente.Location = New Point(21, 38)
+        txtBuscarPaciente.Name = "txtBuscarPaciente"
+        txtBuscarPaciente.Size = New Size(264, 27)
+        txtBuscarPaciente.TabIndex = 10
+        ' 
+        ' lblInstruccionesFormularioP
+        ' 
+        lblInstruccionesFormularioP.AutoSize = True
+        lblInstruccionesFormularioP.ForeColor = Color.Red
+        lblInstruccionesFormularioP.Location = New Point(126, 68)
+        lblInstruccionesFormularioP.Name = "lblInstruccionesFormularioP"
+        lblInstruccionesFormularioP.Size = New Size(1318, 20)
+        lblInstruccionesFormularioP.TabIndex = 11
+        lblInstruccionesFormularioP.Text = "*Si desea agregar usuario solo llene los campos y presione el botón agregar. Si desea modificar o eliminar , búsquelo en la sección de Buscar Doctor y elija el usuario que desea eliminar o modificar."
+        ' 
         ' FormularioPacientes
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1052, 642)
+        ClientSize = New Size(1595, 743)
+        Controls.Add(lblInstruccionesFormularioP)
+        Controls.Add(grpBuscarPaciente)
         Controls.Add(btnEliminarPac)
         Controls.Add(btnModificarPac)
         Controls.Add(btnAgregarPac)
@@ -385,13 +439,15 @@ Partial Class FormularioPacientes
         grpDatosPac.PerformLayout()
         grpGeneroPac.ResumeLayout(False)
         grpGeneroPac.PerformLayout()
+        CType(dtgPacientes, ComponentModel.ISupportInitialize).EndInit()
+        grpBuscarPaciente.ResumeLayout(False)
+        grpBuscarPaciente.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents grpDatosRespPac As GroupBox
     Friend WithEvents grpDatosPac As GroupBox
-    Friend WithEvents mskTelPac As MaskedTextBox
     Friend WithEvents lblTelPac As Label
     Friend WithEvents txtCorreoPac As TextBox
     Friend WithEvents lblCorreoPac As Label
@@ -408,10 +464,8 @@ Partial Class FormularioPacientes
     Friend WithEvents lblApePac As Label
     Friend WithEvents txtNombPac As TextBox
     Friend WithEvents lblNombPac As Label
-    Friend WithEvents mskIdPac As MaskedTextBox
     Friend WithEvents lblIdPac As Label
     Friend WithEvents lblFormPac As Label
-    Friend WithEvents mskNumSegPac As MaskedTextBox
     Friend WithEvents lblNumSegPac As Label
     Friend WithEvents lblTelRespPac As Label
     Friend WithEvents txtNombRespPac As TextBox
@@ -420,5 +474,12 @@ Partial Class FormularioPacientes
     Friend WithEvents btnAgregarPac As Button
     Friend WithEvents btnModificarPac As Button
     Friend WithEvents btnEliminarPac As Button
-    Friend WithEvents btnBuscarPac As Button
+    Friend WithEvents btnBuscarPaciente As Button
+    Friend WithEvents dtgPacientes As DataGridView
+    Friend WithEvents grpBuscarPaciente As GroupBox
+    Friend WithEvents txtBuscarPaciente As TextBox
+    Friend WithEvents lblInstruccionesFormularioP As Label
+    Friend WithEvents txtIdentidadPaciente As TextBox
+    Friend WithEvents txtNumSeguroPac As TextBox
+    Friend WithEvents txtTelefonoPaciente As TextBox
 End Class

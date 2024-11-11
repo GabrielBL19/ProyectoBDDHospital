@@ -3,10 +3,11 @@
 
 Module funcionesGenerales
     Public Function obtenerConexion() As MySqlConnection
-        Return New MySqlConnection("server=127.0.0.1; port:33065; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
+        Return New MySqlConnection("server=127.0.0.1; port=33065; user=root; password=; database=hospitaldb")
     End Function
+
     Public Function obtenerConexion2() As MySqlConnection
-        Return New MySqlConnection("server=127.0.0.1; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
+        Return New MySqlConnection("server=127.0.0.1; user=root; password=; database=hospitalDb")
     End Function
 
     Public Function insertarGeneral(query As String, datos As Object, Optional ByVal transaccion As MySqlTransaction = Nothing) As Boolean
