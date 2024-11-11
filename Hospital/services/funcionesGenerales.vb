@@ -1,6 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
 
-﻿Imports System.Security.Cryptography.X509Certificates
 
 Module funcionesGenerales
     Public Function obtenerConexion() As MySqlConnection
