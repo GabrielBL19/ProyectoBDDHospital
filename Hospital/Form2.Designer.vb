@@ -25,6 +25,8 @@ Partial Class FormularioDoctores
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioDoctores))
         lblFormDoc = New Label()
         grpDatosDoc = New GroupBox()
+        txtTelefono = New TextBox()
+        txtNumidentidad = New TextBox()
         cbxEstadoCivilDoc = New ComboBox()
         lblEstadoCivilDoc = New Label()
         lblTelDoc = New Label()
@@ -62,8 +64,6 @@ Partial Class FormularioDoctores
         btnBuscarDoc = New Button()
         DataGridView1 = New DataGridView()
         Label1 = New Label()
-        txtNumidentidad = New TextBox()
-        txtTelefono = New TextBox()
         grpDatosDoc.SuspendLayout()
         grpGeneroDoc.SuspendLayout()
         grpDatosProfesionalesDoc.SuspendLayout()
@@ -105,19 +105,35 @@ Partial Class FormularioDoctores
         grpDatosDoc.Controls.Add(lblNombDoc)
         grpDatosDoc.Controls.Add(lblIdDoc)
         grpDatosDoc.Location = New Point(14, 144)
-        grpDatosDoc.Margin = New Padding(4, 4, 4, 4)
+        grpDatosDoc.Margin = New Padding(4)
         grpDatosDoc.Name = "grpDatosDoc"
-        grpDatosDoc.Padding = New Padding(4, 4, 4, 4)
+        grpDatosDoc.Padding = New Padding(4)
         grpDatosDoc.Size = New Size(559, 532)
         grpDatosDoc.TabIndex = 1
         grpDatosDoc.TabStop = False
         grpDatosDoc.Text = "Datos Personales"
         ' 
+        ' txtTelefono
+        ' 
+        txtTelefono.Location = New Point(95, 427)
+        txtTelefono.Name = "txtTelefono"
+        txtTelefono.Size = New Size(418, 31)
+        txtTelefono.TabIndex = 10
+        ' 
+        ' txtNumidentidad
+        ' 
+        txtNumidentidad.Location = New Point(195, 34)
+        txtNumidentidad.MaxLength = 13
+        txtNumidentidad.Name = "txtNumidentidad"
+        txtNumidentidad.Size = New Size(318, 31)
+        txtNumidentidad.TabIndex = 1
+        ' 
         ' cbxEstadoCivilDoc
         ' 
         cbxEstadoCivilDoc.FormattingEnabled = True
+        cbxEstadoCivilDoc.Items.AddRange(New Object() {"Casado", "Soltero", "Divorciado"})
         cbxEstadoCivilDoc.Location = New Point(126, 465)
-        cbxEstadoCivilDoc.Margin = New Padding(4, 4, 4, 4)
+        cbxEstadoCivilDoc.Margin = New Padding(4)
         cbxEstadoCivilDoc.Name = "cbxEstadoCivilDoc"
         cbxEstadoCivilDoc.Size = New Size(387, 33)
         cbxEstadoCivilDoc.TabIndex = 11
@@ -145,7 +161,7 @@ Partial Class FormularioDoctores
         ' txtCorreoDoc
         ' 
         txtCorreoDoc.Location = New Point(86, 382)
-        txtCorreoDoc.Margin = New Padding(4, 4, 4, 4)
+        txtCorreoDoc.Margin = New Padding(4)
         txtCorreoDoc.MaxLength = 75
         txtCorreoDoc.Name = "txtCorreoDoc"
         txtCorreoDoc.Size = New Size(427, 31)
@@ -164,7 +180,7 @@ Partial Class FormularioDoctores
         ' txtDirecDoc
         ' 
         txtDirecDoc.Location = New Point(108, 341)
-        txtDirecDoc.Margin = New Padding(4, 4, 4, 4)
+        txtDirecDoc.Margin = New Padding(4)
         txtDirecDoc.MaxLength = 50
         txtDirecDoc.Name = "txtDirecDoc"
         txtDirecDoc.Size = New Size(405, 31)
@@ -185,9 +201,9 @@ Partial Class FormularioDoctores
         grpGeneroDoc.Controls.Add(rdbMasculinoDoc)
         grpGeneroDoc.Controls.Add(rdbFemeninoDoc)
         grpGeneroDoc.Location = New Point(8, 247)
-        grpGeneroDoc.Margin = New Padding(4, 4, 4, 4)
+        grpGeneroDoc.Margin = New Padding(4)
         grpGeneroDoc.Name = "grpGeneroDoc"
-        grpGeneroDoc.Padding = New Padding(4, 4, 4, 4)
+        grpGeneroDoc.Padding = New Padding(4)
         grpGeneroDoc.Size = New Size(271, 76)
         grpGeneroDoc.TabIndex = 6
         grpGeneroDoc.TabStop = False
@@ -197,7 +213,7 @@ Partial Class FormularioDoctores
         ' 
         rdbMasculinoDoc.AutoSize = True
         rdbMasculinoDoc.Location = New Point(142, 32)
-        rdbMasculinoDoc.Margin = New Padding(4, 4, 4, 4)
+        rdbMasculinoDoc.Margin = New Padding(4)
         rdbMasculinoDoc.Name = "rdbMasculinoDoc"
         rdbMasculinoDoc.Size = New Size(117, 29)
         rdbMasculinoDoc.TabIndex = 7
@@ -209,7 +225,7 @@ Partial Class FormularioDoctores
         ' 
         rdbFemeninoDoc.AutoSize = True
         rdbFemeninoDoc.Location = New Point(8, 32)
-        rdbFemeninoDoc.Margin = New Padding(4, 4, 4, 4)
+        rdbFemeninoDoc.Margin = New Padding(4)
         rdbFemeninoDoc.Name = "rdbFemeninoDoc"
         rdbFemeninoDoc.Size = New Size(115, 29)
         rdbFemeninoDoc.TabIndex = 6
@@ -221,7 +237,7 @@ Partial Class FormularioDoctores
         ' 
         txtEdadDoc.Enabled = False
         txtEdadDoc.Location = New Point(72, 198)
-        txtEdadDoc.Margin = New Padding(4, 4, 4, 4)
+        txtEdadDoc.Margin = New Padding(4)
         txtEdadDoc.MaxLength = 75
         txtEdadDoc.Name = "txtEdadDoc"
         txtEdadDoc.Size = New Size(441, 31)
@@ -240,7 +256,7 @@ Partial Class FormularioDoctores
         ' dtpFechaNacDoc
         ' 
         dtpFechaNacDoc.Location = New Point(201, 159)
-        dtpFechaNacDoc.Margin = New Padding(4, 4, 4, 4)
+        dtpFechaNacDoc.Margin = New Padding(4)
         dtpFechaNacDoc.Name = "dtpFechaNacDoc"
         dtpFechaNacDoc.Size = New Size(312, 31)
         dtpFechaNacDoc.TabIndex = 4
@@ -258,7 +274,7 @@ Partial Class FormularioDoctores
         ' txtApeDoc
         ' 
         txtApeDoc.Location = New Point(99, 116)
-        txtApeDoc.Margin = New Padding(4, 4, 4, 4)
+        txtApeDoc.Margin = New Padding(4)
         txtApeDoc.MaxLength = 30
         txtApeDoc.Name = "txtApeDoc"
         txtApeDoc.Size = New Size(414, 31)
@@ -277,7 +293,7 @@ Partial Class FormularioDoctores
         ' txtNombDoc
         ' 
         txtNombDoc.Location = New Point(99, 72)
-        txtNombDoc.Margin = New Padding(4, 4, 4, 4)
+        txtNombDoc.Margin = New Padding(4)
         txtNombDoc.MaxLength = 30
         txtNombDoc.Name = "txtNombDoc"
         txtNombDoc.Size = New Size(414, 31)
@@ -313,9 +329,9 @@ Partial Class FormularioDoctores
         grpDatosProfesionalesDoc.Controls.Add(cbxEspDoc)
         grpDatosProfesionalesDoc.Controls.Add(lblEspDoc)
         grpDatosProfesionalesDoc.Location = New Point(14, 698)
-        grpDatosProfesionalesDoc.Margin = New Padding(4, 4, 4, 4)
+        grpDatosProfesionalesDoc.Margin = New Padding(4)
         grpDatosProfesionalesDoc.Name = "grpDatosProfesionalesDoc"
-        grpDatosProfesionalesDoc.Padding = New Padding(4, 4, 4, 4)
+        grpDatosProfesionalesDoc.Padding = New Padding(4)
         grpDatosProfesionalesDoc.Size = New Size(559, 264)
         grpDatosProfesionalesDoc.TabIndex = 2
         grpDatosProfesionalesDoc.TabStop = False
@@ -326,9 +342,9 @@ Partial Class FormularioDoctores
         grpEstadoDoc.Controls.Add(rdbInactivoDoc)
         grpEstadoDoc.Controls.Add(rdbActivoDoc)
         grpEstadoDoc.Location = New Point(16, 168)
-        grpEstadoDoc.Margin = New Padding(4, 4, 4, 4)
+        grpEstadoDoc.Margin = New Padding(4)
         grpEstadoDoc.Name = "grpEstadoDoc"
-        grpEstadoDoc.Padding = New Padding(4, 4, 4, 4)
+        grpEstadoDoc.Padding = New Padding(4)
         grpEstadoDoc.Size = New Size(229, 81)
         grpEstadoDoc.TabIndex = 6
         grpEstadoDoc.TabStop = False
@@ -338,7 +354,7 @@ Partial Class FormularioDoctores
         ' 
         rdbInactivoDoc.AutoSize = True
         rdbInactivoDoc.Location = New Point(119, 36)
-        rdbInactivoDoc.Margin = New Padding(4, 4, 4, 4)
+        rdbInactivoDoc.Margin = New Padding(4)
         rdbInactivoDoc.Name = "rdbInactivoDoc"
         rdbInactivoDoc.Size = New Size(99, 29)
         rdbInactivoDoc.TabIndex = 17
@@ -350,7 +366,7 @@ Partial Class FormularioDoctores
         ' 
         rdbActivoDoc.AutoSize = True
         rdbActivoDoc.Location = New Point(10, 36)
-        rdbActivoDoc.Margin = New Padding(4, 4, 4, 4)
+        rdbActivoDoc.Margin = New Padding(4)
         rdbActivoDoc.Name = "rdbActivoDoc"
         rdbActivoDoc.Size = New Size(87, 29)
         rdbActivoDoc.TabIndex = 16
@@ -361,7 +377,7 @@ Partial Class FormularioDoctores
         ' txtSueldoDoc
         ' 
         txtSueldoDoc.Location = New Point(88, 116)
-        txtSueldoDoc.Margin = New Padding(4, 4, 4, 4)
+        txtSueldoDoc.Margin = New Padding(4)
         txtSueldoDoc.Name = "txtSueldoDoc"
         txtSueldoDoc.Size = New Size(425, 31)
         txtSueldoDoc.TabIndex = 14
@@ -379,7 +395,7 @@ Partial Class FormularioDoctores
         ' txtTituloDoc
         ' 
         txtTituloDoc.Location = New Point(78, 72)
-        txtTituloDoc.Margin = New Padding(4, 4, 4, 4)
+        txtTituloDoc.Margin = New Padding(4)
         txtTituloDoc.MaxLength = 40
         txtTituloDoc.Name = "txtTituloDoc"
         txtTituloDoc.Size = New Size(435, 31)
@@ -399,7 +415,7 @@ Partial Class FormularioDoctores
         ' 
         cbxEspDoc.FormattingEnabled = True
         cbxEspDoc.Location = New Point(135, 30)
-        cbxEspDoc.Margin = New Padding(4, 4, 4, 4)
+        cbxEspDoc.Margin = New Padding(4)
         cbxEspDoc.Name = "cbxEspDoc"
         cbxEspDoc.Size = New Size(378, 33)
         cbxEspDoc.TabIndex = 12
@@ -419,7 +435,7 @@ Partial Class FormularioDoctores
         btnAgregarDoc.Image = CType(resources.GetObject("btnAgregarDoc.Image"), Image)
         btnAgregarDoc.ImageAlign = ContentAlignment.MiddleRight
         btnAgregarDoc.Location = New Point(30, 970)
-        btnAgregarDoc.Margin = New Padding(4, 4, 4, 4)
+        btnAgregarDoc.Margin = New Padding(4)
         btnAgregarDoc.Name = "btnAgregarDoc"
         btnAgregarDoc.Size = New Size(118, 50)
         btnAgregarDoc.TabIndex = 18
@@ -433,7 +449,7 @@ Partial Class FormularioDoctores
         btnModificarDoc.Image = CType(resources.GetObject("btnModificarDoc.Image"), Image)
         btnModificarDoc.ImageAlign = ContentAlignment.MiddleRight
         btnModificarDoc.Location = New Point(181, 970)
-        btnModificarDoc.Margin = New Padding(4, 4, 4, 4)
+        btnModificarDoc.Margin = New Padding(4)
         btnModificarDoc.Name = "btnModificarDoc"
         btnModificarDoc.Size = New Size(131, 50)
         btnModificarDoc.TabIndex = 19
@@ -447,7 +463,7 @@ Partial Class FormularioDoctores
         btnEliminarDoc.Image = CType(resources.GetObject("btnEliminarDoc.Image"), Image)
         btnEliminarDoc.ImageAlign = ContentAlignment.MiddleRight
         btnEliminarDoc.Location = New Point(354, 970)
-        btnEliminarDoc.Margin = New Padding(4, 4, 4, 4)
+        btnEliminarDoc.Margin = New Padding(4)
         btnEliminarDoc.Name = "btnEliminarDoc"
         btnEliminarDoc.Size = New Size(121, 50)
         btnEliminarDoc.TabIndex = 20
@@ -504,21 +520,6 @@ Partial Class FormularioDoctores
         Label1.TabIndex = 24
         Label1.Text = "* Si desea agregar usuario solo llene los campos y precione el botón agregar. Si desea modificar o eliminar, busquelo en la seccion de Buscar Doctor y elija el usuario que desea modificar o eliminar."
         ' 
-        ' txtNumidentidad
-        ' 
-        txtNumidentidad.Location = New Point(195, 34)
-        txtNumidentidad.MaxLength = 13
-        txtNumidentidad.Name = "txtNumidentidad"
-        txtNumidentidad.Size = New Size(318, 31)
-        txtNumidentidad.TabIndex = 1
-        ' 
-        ' txtTelefono
-        ' 
-        txtTelefono.Location = New Point(95, 427)
-        txtTelefono.Name = "txtTelefono"
-        txtTelefono.Size = New Size(418, 31)
-        txtTelefono.TabIndex = 10
-        ' 
         ' FormularioDoctores
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
@@ -532,7 +533,7 @@ Partial Class FormularioDoctores
         Controls.Add(grpDatosProfesionalesDoc)
         Controls.Add(grpDatosDoc)
         Controls.Add(lblFormDoc)
-        Margin = New Padding(4, 4, 4, 4)
+        Margin = New Padding(4)
         Name = "FormularioDoctores"
         Text = "Doctores"
         grpDatosDoc.ResumeLayout(False)

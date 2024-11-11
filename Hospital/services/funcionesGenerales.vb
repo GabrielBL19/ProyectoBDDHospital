@@ -6,15 +6,17 @@ Module funcionesGenerales
         Return New MySqlConnection("server=127.0.0.1; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
     End Function
 
-    Public Function consultaGeneral(query As String, datos As Object) As Object
+    Public Function insertarGeneral(query As String, datos As Object, Optional ByVal transaccion As MySqlTransaction = Nothing) As Boolean
         ' Crear la conexión a la base de datos
         Dim conexion As MySqlConnection = obtenerConexion()
-        conexion.Open()
 
         ' Crear el comando SQL
         Dim cmd As New MySqlCommand(query, conexion)
+        If transaccion IsNot Nothing Then
+            cmd.Transaction = transaccion
+        End If
 
-        ' Obtener las propiedades del objeto "datos" (que puede ser Persona, Empleado, etc.)
+        ' Obtener las propiedades del objeto "datos" (que puede ser Persona o Enfermero)
         Dim properties = datos.GetType().GetProperties()
 
         ' Crear una lista para los parámetros
@@ -28,46 +30,19 @@ Module funcionesGenerales
             cmd.Parameters.Add(param)
         Next
 
-        ' Determinar el tipo de consulta (SELECT, INSERT, UPDATE, DELETE)
-        If query.Trim().ToUpper().StartsWith("SELECT") Then
-            ' Si es una consulta SELECT, ejecutamos ExecuteReader() y devolvemos los resultados
-            Dim reader As MySqlDataReader = cmd.ExecuteReader()
-            Dim resultados As New List(Of Dictionary(Of String, Object))()
-
-            While reader.Read()
-                ' Crear un diccionario para cada fila
-                Dim fila As New Dictionary(Of String, Object)()
-
-                ' Agregar cada columna de la fila al diccionario
-                For i As Integer = 0 To reader.FieldCount - 1
-                    fila.Add(reader.GetName(i), reader.GetValue(i))
-                Next
-
-                ' Agregar la fila al resultado
-                resultados.Add(fila)
-            End While
-
-            reader.Close()
+        ' Ejecutar el comando
+        Try
+            conexion.Open()
+            Dim filasAfectadas As Integer = cmd.ExecuteNonQuery()
             conexion.Close()
-
-            ' Retornar los resultados de la consulta SELECT
-            Return resultados
-
-        Else
-            ' Si no es un SELECT (INSERT, UPDATE, DELETE), ejecutamos ExecuteNonQuery()
-            Try
-                Dim filasAfectadas As Integer = cmd.ExecuteNonQuery()
-                conexion.Close()
-
-                ' Si las filas afectadas son mayores a 0, la operación fue exitosa
-                Return filasAfectadas > 0
-            Catch ex As Exception
-                ' Manejo de excepciones
-                conexion.Close()
-                Return False
-            End Try
-        End If
+            Return filasAfectadas > 0
+        Catch ex As Exception
+            ' Manejo de excepciones
+            conexion.Close()
+            Return False
+        End Try
     End Function
+
 
 
 
