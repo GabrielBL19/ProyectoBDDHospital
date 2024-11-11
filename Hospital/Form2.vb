@@ -14,14 +14,10 @@ Public Class FormularioDoctores
         personaO.correo = txtCorreoDoc.Text
         personaO.telefono = txtTelefono.Text
         personaO.direccion = txtDirecDoc.Text
-        personaO.fechaNac = "2002-01-14"
-        If rdbFemeninoDoc.Checked = True Then
-            personaO.genero = 0
-        Else
-            personaO.genero = 1
-        End If
+        Dim fecha = dtpFechaNacDoc.Value
+        personaO.fechaNac = fecha.ToString("yyyy-MM-dd")
+        personaO.genero = If(rdbFemeninoDoc.Checked, 0, 1)
 
-        ' Crear la conexión y abrirla
         Dim conexion As MySqlConnection = obtenerConexion()
         conexion.Open()
 
@@ -85,10 +81,82 @@ Public Class FormularioDoctores
         End Try
 
     End Function
+    Public Function actualizarDoctor() As Boolean
+        Dim personaO As New C_persona()
+        Dim doctor As New C_doctor()
+
+        ' Rellenamos los datos a actualizar
+        personaO.numIdentidad = txtNumidentidad.Text
+        personaO.nombre = txtNombDoc.Text
+        personaO.apellido = txtApeDoc.Text
+        personaO.correo = txtCorreoDoc.Text
+        personaO.telefono = txtTelefono.Text
+        personaO.direccion = txtDirecDoc.Text
+        personaO.fechaNac = dtpFechaNacDoc.Value.ToString("yyyy-MM-dd")
+        personaO.genero = If(rdbFemeninoDoc.Checked, 0, 1)
+
+        doctor.numIdentidad = personaO.numIdentidad
+        doctor.estadoCivil = 1 ' Suponiendo que el estado civil es 1
+        doctor.titulo = "adsad" ' Suponiendo un valor para el título
+        doctor.estado = If(rdbActivoDoc.Checked, 1, 0)
+        doctor.sueldo = txtSueldoDoc.Text
+
+        ' Crear la conexión
+        Dim conexion As MySqlConnection = obtenerConexion()
+        conexion.Open()
+
+        ' Iniciar una transacción
+        Dim transaccion As MySqlTransaction = conexion.BeginTransaction()
+
+        Try
+            ' Actualizar todos los campos de la tabla persona
+            Dim query1 As String = "UPDATE persona SET nombre = @nombre, apellido = @apellido, correo = @correo, telefono = @telefono, direccion = @direccion, fechaNac = @fechaNac, genero = @genero WHERE numIdentidad = @numIdentidad"
+            Dim resultadoPersona As Boolean = actualizarGeneral(query1, personaO, transaccion)
+            If Not resultadoPersona Then
+                ' Si falla la actualización en persona, revertir la transacción
+                transaccion.Rollback()
+                MsgBox("Error al actualizar los datos de la persona.")
+                Return False
+            End If
+
+            ' Actualizar todos los campos de la tabla doctor
+            Dim query2 As String = "UPDATE doctor SET estadoCivil = @estadoCivil, titulo = @titulo, estado = @estado, sueldo = @sueldo WHERE numIdentidad = @numIdentidad"
+            Dim resultadoDoctor As Boolean = actualizarGeneral(query2, doctor, transaccion)
+            If Not resultadoDoctor Then
+                ' Si falla la actualización en doctor, revertir la transacción
+                transaccion.Rollback()
+                MsgBox("Error al actualizar los datos del doctor.")
+                Return False
+            End If
+
+            ' Si todo fue exitoso, hacer commit
+            transaccion.Commit()
+
+            ' Mensaje de éxito
+            MsgBox("Datos actualizados correctamente.")
+            Return True
+        Catch ex As Exception
+            ' En caso de error, revertir la transacción
+            transaccion.Rollback()
+            MsgBox("Error: " & ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+
+
+
 
     Private Sub btnAgregarDoc_Click(sender As Object, e As EventArgs) Handles btnAgregarDoc.Click
         agDoctor()
 
+
+    End Sub
+
+    Private Sub btnModificarDoc_Click(sender As Object, e As EventArgs) Handles btnModificarDoc.Click
+        actualizarDoctor()
 
     End Sub
 End Class

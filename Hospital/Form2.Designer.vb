@@ -445,7 +445,6 @@ Partial Class FormularioDoctores
         ' 
         ' btnModificarDoc
         ' 
-        btnModificarDoc.Enabled = False
         btnModificarDoc.Image = CType(resources.GetObject("btnModificarDoc.Image"), Image)
         btnModificarDoc.ImageAlign = ContentAlignment.MiddleRight
         btnModificarDoc.Location = New Point(181, 970)
