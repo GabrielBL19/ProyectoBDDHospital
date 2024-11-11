@@ -41,7 +41,7 @@ Public Class FormularioDoctores
 
             ' Insertar en la tabla persona
             Dim query1 As String = "INSERT INTO persona(numIdentidad, nombre, apellido, correo, genero, telefono, direccion, fechaNac) VALUES(@numIdentidad, @nombre, @apellido, @correo, @genero, @telefono, @direccion, @fechaNac)"
-            Dim resultadoPersona As Boolean = insertarGeneral(query1, personaO, transaccion)
+            Dim resultadoPersona As Boolean = insertarGeneral1(query1, personaO, transaccion)
             If Not resultadoPersona Then
                 ' Si falla la inserción en persona, revertir la transacción
                 transaccion.Rollback()
@@ -57,7 +57,7 @@ Public Class FormularioDoctores
             doctor.estado = If(rdbActivoDoc.Checked, 1, 0)
             doctor.sueldo = txtSueldoDoc.Text
 
-            Dim resultadoEmpleado As Boolean = insertarGeneral(query2, doctor, transaccion)
+            Dim resultadoEmpleado As Boolean = insertarGeneral1(query2, doctor, transaccion)
             If Not resultadoEmpleado Then
                 ' Si falla la inserción en empleado, revertir la transacción
                 transaccion.Rollback()
@@ -111,7 +111,7 @@ Public Class FormularioDoctores
         Try
             ' Actualizar todos los campos de la tabla persona
             Dim query1 As String = "UPDATE persona SET nombre = @nombre, apellido = @apellido, correo = @correo, telefono = @telefono, direccion = @direccion, fechaNac = @fechaNac, genero = @genero WHERE numIdentidad = @numIdentidad"
-            Dim resultadoPersona As Boolean = actualizarGeneral(query1, personaO, transaccion)
+            Dim resultadoPersona As Boolean = actualizarGeneral1(query1, personaO, transaccion)
             If Not resultadoPersona Then
                 ' Si falla la actualización en persona, revertir la transacción
                 transaccion.Rollback()
@@ -121,7 +121,7 @@ Public Class FormularioDoctores
 
             ' Actualizar todos los campos de la tabla doctor
             Dim query2 As String = "UPDATE doctor SET estadoCivil = @estadoCivil, titulo = @titulo, estado = @estado, sueldo = @sueldo WHERE numIdentidad = @numIdentidad"
-            Dim resultadoDoctor As Boolean = actualizarGeneral(query2, doctor, transaccion)
+            Dim resultadoDoctor As Boolean = actualizarGeneral1(query2, doctor, transaccion)
             If Not resultadoDoctor Then
                 ' Si falla la actualización en doctor, revertir la transacción
                 transaccion.Rollback()
