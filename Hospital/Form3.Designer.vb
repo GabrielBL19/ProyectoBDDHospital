@@ -152,7 +152,7 @@ Partial Class FormularioPacientes
         ' txtTelefonoPaciente
         ' 
         txtTelefonoPaciente.Location = New Point(79, 338)
-        txtTelefonoPaciente.MaxLength = 75
+        txtTelefonoPaciente.MaxLength = 8
         txtTelefonoPaciente.Name = "txtTelefonoPaciente"
         txtTelefonoPaciente.Size = New Size(159, 27)
         txtTelefonoPaciente.TabIndex = 14
