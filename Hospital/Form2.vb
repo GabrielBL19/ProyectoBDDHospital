@@ -144,7 +144,60 @@ Public Class FormularioDoctores
             conexion.Close()
         End Try
     End Function
+    Public Function eliminarDoctor() As Boolean
+        Dim personaO As New C_persona()
+        Dim doctor As New C_doctor()
 
+        ' Obtener el número de identidad del doctor a eliminar
+        personaO.numIdentidad = txtNumidentidad.Text
+
+        ' Crear la conexión
+        Dim conexion As MySqlConnection = obtenerConexion()
+        conexion.Open()
+
+        ' Iniciar una transacción
+        Dim transaccion As MySqlTransaction = conexion.BeginTransaction()
+
+        Try
+            ' Primero, eliminar el registro de la tabla doctor
+            Dim query1 As String = "DELETE FROM doctor WHERE numIdentidad = @numIdentidad"
+            Dim resultadoDoctor As Boolean = eliminarGeneral(query1, personaO, transaccion)
+            If Not resultadoDoctor Then
+                ' Si falla la eliminación en doctor, revertir la transacción
+                transaccion.Rollback()
+                MsgBox("Error al eliminar los datos del doctor.")
+                Return False
+            End If
+
+            ' Luego, eliminar el registro de la tabla persona
+            Dim query2 As String = "DELETE FROM persona WHERE numIdentidad = @numIdentidad"
+            Dim resultadoPersona As Boolean = eliminarGeneral(query2, personaO, transaccion)
+            If Not resultadoPersona Then
+                ' Si falla la eliminación en persona, revertir la transacción
+                transaccion.Rollback()
+                MsgBox("Error al eliminar los datos de la persona.")
+                Return False
+            End If
+
+            ' Si todo fue exitoso, hacer commit
+            transaccion.Commit()
+
+            ' Mensaje de éxito
+            MsgBox("Datos eliminados correctamente.")
+            Return True
+        Catch ex As Exception
+            ' En caso de error, revertir la transacción
+            transaccion.Rollback()
+            MsgBox("Error: " & ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Private Sub btnEliminarDoc_Click(sender As Object, e As EventArgs) Handles btnEliminarDoc.Click
+        eliminarDoctor()
+    End Sub
 
 
 
