@@ -3,7 +3,7 @@
 
 Module funcionesGenerales
     Public Function obtenerConexion() As MySqlConnection
-        Return New MySqlConnection("server=127.0.0.1:33065; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
+        Return New MySqlConnection("server=127.0.0.1; port:33065; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
     End Function
     Public Function obtenerConexion2() As MySqlConnection
         Return New MySqlConnection("server=127.0.0.1; user=root; password=; database=hospitalDb") 'MsqlConnection objeto de la libreria, 
